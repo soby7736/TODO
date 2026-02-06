@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker - Signup</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+      padding: 50px 0; /* Add padding to allow scroll space */
+    }
+
+    .signup-container {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .signup-container h1 {
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .signup-container p {
+      margin-bottom: 25px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4dd0e1;
+      box-shadow: 0 0 6px rgba(77, 208, 225, 0.4);
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(to right, #4dd0e1, #26c6da);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(77, 208, 225, 0.4);
+    }
+
+    /* --- Social Login --- */
+    .social-login {
+      margin-top: 25px;
+    }
+
+    .social-login p {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .google { background: #db4437; }
+    .facebook { background: #1877f2; }
+    .twitter { background: #1da1f2; }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .footer-text a {
+      color: #26c6da;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 450px) {
+      .signup-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h1>Create Account</h1>
+    <p>Join TODO Track Your Tasks</p>
+
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Social Login Section -->
+    <div class="social-login">
+      <p>or sign up with</p>
+      <div class="social-icons">
+        <a href="" class="social-icon google"><i class="fab fa-google"></i></a>
+        <a href="" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-text">
+      Already have an account? <a href="{% url 'signup' %}">Sign in</a>
+    </div>
+  </div>
+</body>
+</html>
