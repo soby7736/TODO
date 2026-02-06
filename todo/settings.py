@@ -41,14 +41,6 @@ INSTALLED_APPS = [
     'user_task',
 ]
 
-# SMTP django
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "sobyfrancic90@gmail.com" #sender's email-id
-EMAIL_HOST_PASSWORD = "jbxf hnll osnz vegi" #password associated with above email-id (not the regular password)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
